@@ -14,10 +14,10 @@ class ProductDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("loadedProduct.title"),
+        title: Text(loadedProduct.title),
       ),
       body: Container(
-        child: Text("productId"),
+        child: Text(""),
       ),
     );
   }
