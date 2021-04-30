@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/screens/product_detail_screen.dart';
+
+import '../screens/product_detail_screen.dart';
+import '../providers/product.dart';
+import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final String description;
-  final double price;
-  final String imageUrl;
-  bool isFavourite;
-
-  ProductItem(this.id, this.title, this.description, this.price, this.imageUrl,
-      this.isFavourite);
-
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<Product>(context);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -26,7 +20,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Image.network(
-            imageUrl,
+            product.imageUrl,
             fit: BoxFit.cover,
           ),
         ),
@@ -39,7 +33,7 @@ class ProductItem extends StatelessWidget {
             ),
           ),
           title: Text(
-            title,
+            product.title,
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
